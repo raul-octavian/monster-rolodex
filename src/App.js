@@ -20,9 +20,21 @@ class App extends Component {
           <p>
             hello {this.state.name}
           </p>
-          <button onClick={() => { this.setState({ name: 'Raul-Octavian' }) }}>Complete name</button>
+
+          {/* setState primeste doi parametri, ambii functii, prima seteaza state si primeste optional ca si parametrii state si props, iar a  doua obtionala este un callback care ruleaza cand state este updatat. are access la cea mai noua versiune de state care se updateaza async.  */}
+          <button onClick={() => {
+            this.setState(() => {
+              return {
+                name: 'Raul-Octavian'
+              };
+            },
+              () => {
+                console.log(this.state.name)
+              });
+          }
+          }>Complete name</button>
         </header>
-      </div>
+      </div >
     );
 
   }
